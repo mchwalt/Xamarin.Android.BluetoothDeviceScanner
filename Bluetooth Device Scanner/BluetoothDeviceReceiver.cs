@@ -22,7 +22,12 @@ namespace Bluetooth_Device_Scanner
                     // Only update the adapter with items which are not bonded
                     if (device.BondState != Bond.Bonded)
                     {
-                        MainActivity.GetInstance().UpdateAdapter(new DataItem(device.Name, device.Address, $"DeviceType: {device.Type}", $"DeviceClass: {device.BluetoothClass.DeviceClass}"));
+                        MainActivity.GetInstance().UpdateAdapter(new DataItem(  $"{device.Name} ({device.Alias})", 
+                                                                                device.Address, 
+                                                                                $"DeviceType: {device.Type}", 
+                                                                                $"DeviceClass: {device.BluetoothClass.DeviceClass}", 
+                                                                                $"MajorDeviceClass: {device.BluetoothClass.MajorDeviceClass}"
+                                                                             ));
                     }
 
                     break;

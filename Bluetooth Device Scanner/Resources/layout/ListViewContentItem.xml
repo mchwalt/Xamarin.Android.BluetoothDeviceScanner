@@ -16,13 +16,19 @@
         android:layout_margin="5dp"
         android:textColor="@android:color/darker_gray" />
     <TextView
-        android:id="@+id/txtType"
+        android:id="@+id/txtDeviceType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:textColor="@android:color/darker_gray" />
     <TextView
-        android:id="@+id/txtClass"
+        android:id="@+id/txtDeviceClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textColor="@android:color/darker_gray" />
+    <TextView
+        android:id="@+id/txtMajorDeviceClass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"

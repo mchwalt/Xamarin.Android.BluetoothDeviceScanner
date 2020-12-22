@@ -2,12 +2,13 @@
 {
     public class DataItem : IListItem
     {
-        public DataItem(string title, string subtitle, string type, string bluetoothClass)
+        public DataItem(string title, string subtitle, string type, string deviceClass, string majorDeviceClass)
         {
             Text = title;
             SubTitle = subtitle;
             Type = type;
-            BluetoothClass = bluetoothClass;
+            DeviceClass = deviceClass;
+            MajorDeviceClass = majorDeviceClass;
         }
 
         public string SubTitle { get; }
@@ -16,7 +17,9 @@
 
         public string Type { get; set; }
 
-        public string BluetoothClass { get; set; }
+        public string DeviceClass { get; set; }
+
+        public string MajorDeviceClass { get; set; }
 
         public ListItemType GetListItemType()
         {

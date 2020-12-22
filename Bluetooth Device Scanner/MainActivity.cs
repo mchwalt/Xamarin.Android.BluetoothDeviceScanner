@@ -152,11 +152,12 @@ namespace Bluetooth_Device_Scanner
             else
             {
                 var bondedDevices = BluetoothDeviceReceiver.Adapter.BondedDevices.Select(
-                                bluetoothDevice => new DataItem(
-                                bluetoothDevice.Name,
-                                bluetoothDevice.Address,
-                                $"DeviceType: {bluetoothDevice.Type}", 
-                                $"DeviceClass: {bluetoothDevice.BluetoothClass.DeviceClass}"
+                                device => new DataItem(
+                                $"{device.Name} ({device.Alias})",
+                                device.Address,
+                                $"DeviceType: {device.Type}", 
+                                $"DeviceClass: {device.BluetoothClass.DeviceClass}",
+                                $"MajorDeviceClass: {device.BluetoothClass.MajorDeviceClass}"
                             ));
 
                 if (bondedDevices != null && bondedDevices.Count<DataItem>() > 0)

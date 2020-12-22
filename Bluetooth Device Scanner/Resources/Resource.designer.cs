@@ -2813,43 +2813,46 @@ namespace Bluetooth_Device_Scanner
 			public const int transition_transform = 2131230888;
 			
 			// aapt resource value: 0x7F0800A9
-			public const int txtClass = 2131230889;
+			public const int txtDeviceClass = 2131230889;
 			
 			// aapt resource value: 0x7F0800AA
-			public const int txtHeader = 2131230890;
+			public const int txtDeviceType = 2131230890;
 			
 			// aapt resource value: 0x7F0800AB
-			public const int txtStatus = 2131230891;
+			public const int txtHeader = 2131230891;
 			
 			// aapt resource value: 0x7F0800AC
-			public const int txtSubTitle = 2131230892;
+			public const int txtMajorDeviceClass = 2131230892;
 			
 			// aapt resource value: 0x7F0800AD
-			public const int txtTitle = 2131230893;
+			public const int txtStatus = 2131230893;
 			
 			// aapt resource value: 0x7F0800AE
-			public const int txtType = 2131230894;
+			public const int txtSubTitle = 2131230894;
 			
 			// aapt resource value: 0x7F0800AF
-			public const int uniform = 2131230895;
+			public const int txtTitle = 2131230895;
 			
 			// aapt resource value: 0x7F0800B0
-			public const int up = 2131230896;
+			public const int uniform = 2131230896;
 			
 			// aapt resource value: 0x7F0800B1
-			public const int useLogo = 2131230897;
+			public const int up = 2131230897;
 			
 			// aapt resource value: 0x7F0800B2
-			public const int view_offset_helper = 2131230898;
+			public const int useLogo = 2131230898;
 			
 			// aapt resource value: 0x7F0800B3
-			public const int visible = 2131230899;
+			public const int view_offset_helper = 2131230899;
 			
 			// aapt resource value: 0x7F0800B4
-			public const int withText = 2131230900;
+			public const int visible = 2131230900;
 			
 			// aapt resource value: 0x7F0800B5
-			public const int wrap_content = 2131230901;
+			public const int withText = 2131230901;
+			
+			// aapt resource value: 0x7F0800B6
+			public const int wrap_content = 2131230902;
 			
 			static Id()
 			{

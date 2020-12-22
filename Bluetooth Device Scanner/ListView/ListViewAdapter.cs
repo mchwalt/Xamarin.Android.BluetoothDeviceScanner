@@ -62,13 +62,15 @@ namespace Bluetooth_Device_Scanner.ListView
 
                     var title = view.FindViewById<TextView>(Resource.Id.txtTitle);
                     var subTitle = view.FindViewById<TextView>(Resource.Id.txtSubTitle);
-                    var type = view.FindViewById<TextView>(Resource.Id.txtType);
-                    var blueToothClass = view.FindViewById<TextView>(Resource.Id.txtClass);
+                    var type = view.FindViewById<TextView>(Resource.Id.txtDeviceType);
+                    var deviceClass = view.FindViewById<TextView>(Resource.Id.txtDeviceClass);
+                    var majorDeviceClass = view.FindViewById<TextView>(Resource.Id.txtMajorDeviceClass);
 
                     title.Text = contentItem.Text;
                     subTitle.Text = contentItem.SubTitle;
                     type.Text = contentItem.Type;
-                    blueToothClass.Text = contentItem.BluetoothClass;
+                    deviceClass.Text = contentItem.DeviceClass;
+                    majorDeviceClass.Text = contentItem.MajorDeviceClass;
                 }
             }
             catch (Exception ex)
