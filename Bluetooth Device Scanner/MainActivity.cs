@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Android;
 using Android.App;
@@ -139,33 +140,35 @@ namespace Bluetooth_Device_Scanner
 
         private void PopulateListView()
         {
-            var item = new List<IListItem>
+            var items = new List<IListItem>
             {
                 new HeaderListItem("PREVIOUSLY PAIRED")
             };
 
             if (BluetoothDeviceReceiver.Adapter == null)
             {
-                item.Add(new StatusHeaderListItem("No Bluetooth Adapter available!"));
+                items.Add(new StatusHeaderListItem("No Bluetooth Adapter available!"));
             }
             else
-            { 
+            {
                 var bondedDevices = BluetoothDeviceReceiver.Adapter.BondedDevices.Select(
                                 bluetoothDevice => new DataItem(
                                 bluetoothDevice.Name,
-                                bluetoothDevice.Address
+                                bluetoothDevice.Address,
+                                $"DeviceType: {bluetoothDevice.Type}", 
+                                $"DeviceClass: {bluetoothDevice.BluetoothClass.DeviceClass}"
                             ));
 
                 if (bondedDevices != null && bondedDevices.Count<DataItem>() > 0)
-                    item.AddRange(bondedDevices);
+                    items.AddRange(bondedDevices);
 
                 StartScanning();
 
-                item.Add(new StatusHeaderListItem("Scanning started..."));
+                items.Add(new StatusHeaderListItem("Scanning started..."));
             }
 
             var lst = FindViewById<Android.Widget.ListView>(Resource.Id.lstview);
-            lst.Adapter = new ListViewAdapter(this, item);
+            lst.Adapter = new ListViewAdapter(this, items);
         }
 
         public void UpdateAdapterStatus(string discoveryStatus)
