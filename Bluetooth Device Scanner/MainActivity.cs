@@ -107,11 +107,15 @@ namespace Bluetooth_Device_Scanner
 
         private static void StartScanning()
         {
+            if (BluetoothDeviceReceiver.Adapter == null)
+                return;
             if (!BluetoothDeviceReceiver.Adapter.IsDiscovering) BluetoothDeviceReceiver.Adapter.StartDiscovery();
         }
 
         private static void CancelScanning()
         {
+            if (BluetoothDeviceReceiver.Adapter == null)
+                return;
             if (BluetoothDeviceReceiver.Adapter.IsDiscovering) BluetoothDeviceReceiver.Adapter.CancelDiscovery();
         }
 
@@ -140,18 +144,25 @@ namespace Bluetooth_Device_Scanner
                 new HeaderListItem("PREVIOUSLY PAIRED")
             };
 
-            item.AddRange(
-                BluetoothDeviceReceiver.Adapter.BondedDevices.Select(
-                    bluetoothDevice => new DataItem(
-                        bluetoothDevice.Name,
-                        bluetoothDevice.Address
-                    )
-                )
-            );
+            if (BluetoothDeviceReceiver.Adapter == null)
+            {
+                item.Add(new StatusHeaderListItem("No Bluetooth Adapter available!"));
+            }
+            else
+            { 
+                var bondedDevices = BluetoothDeviceReceiver.Adapter.BondedDevices.Select(
+                                bluetoothDevice => new DataItem(
+                                bluetoothDevice.Name,
+                                bluetoothDevice.Address
+                            ));
 
-            StartScanning();
+                if (bondedDevices != null && bondedDevices.Count<DataItem>() > 0)
+                    item.AddRange(bondedDevices);
 
-            item.Add(new StatusHeaderListItem("Scanning started..."));
+                StartScanning();
+
+                item.Add(new StatusHeaderListItem("Scanning started..."));
+            }
 
             var lst = FindViewById<Android.Widget.ListView>(Resource.Id.lstview);
             lst.Adapter = new ListViewAdapter(this, item);
